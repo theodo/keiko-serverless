@@ -1,6 +1,0 @@
-{
-  "root": "backend/forum",
-  "projectType": "application",
-  "tags": [],
-  "implicitDependencies": ["backend-core"]
-}

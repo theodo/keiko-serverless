@@ -1,0 +1,6 @@
+{
+  "root": "packages/frontend",
+  "projectType": "library",
+  "tags": [],
+  "implicitDependencies": []
+}

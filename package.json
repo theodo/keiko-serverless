@@ -1,13 +1,10 @@
 {
-  "name": "@sls-monorepo/root",
+  "name": "@dojo-serverless/root",
   "private": true,
   "version": "1.0.0",
   "license": "MIT",
   "workspaces": [
-    "backend/*",
-    "contracts/*",
-    "packages/*",
-    "frontend/*"
+    "packages/*"
   ],
   "scripts": {
     "build-all": "nx run-many --target=build --all --parallel=4",
