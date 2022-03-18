@@ -1,14 +1,11 @@
-import { Button } from '@mui/material';
-import { css } from '@mui/system';
-import { styled } from 'theme';
-import kumo from 'assets/kumo.png';
+import { Button, Typography } from '@mui/material';
 
-const StyledButtonWithTheme = styled(Button)(
-  ({ theme }) => css`
-    height: 10vh;
-    background: ${theme.palette.secondary.main};
-  `,
-);
+
+import { styled } from 'theme';
+const StyledButtonWithTheme = styled(Button)`
+  height: 10vh;
+  background: darkorange;
+`;
 
 const StyledButton = styled(Button)`
   background: red;
@@ -29,8 +26,6 @@ const ApeNFT = styled('img')<ApeNFTProps>`
   cursor: not-allowed;
 `;
 
-const KumoLogo = styled('img')`
-  src: ${kumo};
-`;
 
-export { StyledButton, StyledButtonWithTheme, ApeNFT, KumoLogo };
+
+export { StyledButton, StyledButtonWithTheme, ApeNFT };
