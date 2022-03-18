@@ -1,7 +1,6 @@
-import getHandlerPath from '../../helpers';
-import type { LambdaFunction } from '../../types';
+import { getHandlerPath } from '@libs/configHelper/getHandlerPath';
 
-const config: LambdaFunction = {
+const config = {
   environment: {},
   handler: getHandlerPath(__dirname),
   events: [
