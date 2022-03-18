@@ -5,7 +5,7 @@ import { nftTable } from './nftTable';
 export const nftEntity = new Entity({
   name: 'ClientEventEntity',
   attributes: {
-    [PARTITION_KEY]: { type: 'string', partitionKey: true, default: 'Virus' },
+    [PARTITION_KEY]: { type: 'string', partitionKey: true, default: 'Nft' },
     [SORT_KEY]: { type: 'string', sortKey: true },
   },
   table: nftTable,
