@@ -28,27 +28,39 @@ const getRandomApeNFT = () => ({
   src: ApeNFTImgs[randomIntFromInterval(0, 4)],
 });
 
+const getNFTPrice = () => randomIntFromInterval(0,100000);
+
 const Home = (): JSX.Element => {
+
+  const [score, setScore] = useState(0);
+  
   const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([
     getRandomApeNFT(),
     getRandomApeNFT(),
     getRandomApeNFT(),
   ]);
 
-  const addApeNFT = () =>
+  const buyApeNFT = () => {
     setApeNFTs(prevApeNFTs => prevApeNFTs.concat(getRandomApeNFT()));
-
-  const killApeNFT = (apeNFTId: string) =>
+    setScore(prevScore => prevScore - getNFTPrice());
+  };
+  const sellApeNFT = (apeNFTId: string) => {
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
+    setScore(prevScore => prevScore + getNFTPrice());}
 
   return (
     <Box display="flex" flexDirection="column" height="100vh" maxWidth="100%">
       <AppBar position="sticky">
         <Toolbar>
+          <Box display="flex" justifyContent="space-between" width="100%">
           <KumoLogo />
           <Typography variant="h1">
             {'Serverless Dojo: Learn serverless with Bored Apes'}
           </Typography>
+          <Typography variant="h1"  >
+      {`Score : ${score}`}
+        </Typography>
+        </Box>
         </Toolbar>
       </AppBar>
       <Box
@@ -67,7 +79,7 @@ const Home = (): JSX.Element => {
               key={apeNFT.id}
               {...apeNFT}
               onClick={() => {
-                killApeNFT(apeNFT.id);
+                sellApeNFT(apeNFT.id);
               }}
             ></ApeNFT>
           ))}
@@ -79,8 +91,8 @@ const Home = (): JSX.Element => {
           alignContent="center"
           textAlign="center"
         >
-          <StyledButtonWithTheme onClick={addApeNFT}>
-            Add ApeNFT
+          <StyledButtonWithTheme onClick={buyApeNFT}>
+            {'Buy ApeNFT'}
           </StyledButtonWithTheme>
         </Box>
       </Box>
