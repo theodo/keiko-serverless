@@ -1,3 +1,4 @@
-import health from './getNft/config';
+import { createNft } from "./createNft/config";
+import { getNft } from "./getNft/config";
 
-export const functions = { getNft };
+export const functions = { getNft, createNft };

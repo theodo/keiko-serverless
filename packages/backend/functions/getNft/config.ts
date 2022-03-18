@@ -1,6 +1,6 @@
 import { getHandlerPath } from '@libs/configHelper/getHandlerPath';
 
-const config = {
+export const getNft = {
   environment: {},
   handler: getHandlerPath(__dirname),
   events: [
@@ -12,5 +12,3 @@ const config = {
     },
   ],
 };
-
-export default config;
