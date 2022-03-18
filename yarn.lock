@@ -2466,6 +2466,7 @@ __metadata:
     lodash: ^4.17.21
     npm-audit-resolver: ^3.0.0-6
     prettier: ^2.5.1
+    serverless-iam-roles-per-function: ^3.2.0
     syncpack: ^6.2.0
     tsconfig-paths: ^3.11.0
     typescript: ^4.5.5
@@ -11414,7 +11415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.10, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -14277,6 +14278,15 @@ __metadata:
   peerDependencies:
     esbuild: ">=0.8 <0.15"
   checksum: 628cbe1deee030fde8eba90dbd41ffb170137bd3ec23e74523ec20a0cc8da9a4eb7a45e25d61b1075c1c499f052ad0259c2560863334f0ec94276b162a0eb835
+  languageName: node
+  linkType: hard
+
+"serverless-iam-roles-per-function@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "serverless-iam-roles-per-function@npm:3.2.0"
+  dependencies:
+    lodash: ^4.17.20
+  checksum: e1bd7b74be8913922263e0ba205061af6a3e5e4579de65870f21dc17a9c3d3a4f2ba4bf12d99f1af9ee82d1051b25c3477a6f6225219a97da4a0bfc47ca2787a
   languageName: node
   linkType: hard
 

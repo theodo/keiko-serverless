@@ -12,6 +12,7 @@ const table = new Table(stack, 'NFTtable', {
   sortKey: { name: SORT_KEY, type: AttributeType.STRING },
 });
 
+export const tableArn = stack.resolve(table.tableArn);
 export const tableName = stack.resolve(table.tableName);
 
 export const resources = app.synth().getStackByName(stack.stackName)
