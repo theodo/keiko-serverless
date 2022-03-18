@@ -1,3 +1,3 @@
 import health from './getNft/config';
 
-export const functions = { health };
+export const functions = { getNft };

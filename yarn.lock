@@ -2452,6 +2452,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.12.1
     "@typescript-eslint/parser": ^5.12.1
     aws-sdk: ^2.1080.0
+    dynamodb-toolbox: ^0.3.5
     eslint: ^8.9.0
     eslint-config-prettier: ^8.4.0
     eslint-import-resolver-typescript: ^2.5.0
@@ -7110,6 +7111,13 @@ __metadata:
     d: 1
     es5-ext: ~0.10.46
   checksum: 907f4fdb2d5304744b419466846b41076bb0b2f5cde4ca02e78dd8d679b3ae14c29350d3f3a852006f5b6df0c6848efb7b38a6e4ae1b5dbadab5c46a2af22f91
+  languageName: node
+  linkType: hard
+
+"dynamodb-toolbox@npm:^0.3.5":
+  version: 0.3.5
+  resolution: "dynamodb-toolbox@npm:0.3.5"
+  checksum: d75542b529a8dc54c6b0432f3779c62ec9709c94f41356711f042f7d8251950ab41dd25394cca49ee1000fdec263767ca7e08382afac738af76b7d566ef051c9
   languageName: node
   linkType: hard
 

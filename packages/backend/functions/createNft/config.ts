@@ -6,7 +6,7 @@ const config = {
   events: [
     {
       httpApi: {
-        method: 'get',
+        method: 'post',
         path: '/nfts',
       },
     },
