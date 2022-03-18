@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { KumoLogo } from 'components/KumoLogo';
 
 import { useState } from 'react';
 import nft1 from 'assets/nft1.png';
@@ -9,7 +10,7 @@ import nft4 from 'assets/nft4.png';
 import nft5 from 'assets/nft5.png';
 import { v4 } from 'uuid';
 
-import { ApeNFT, KumoLogo, StyledButtonWithTheme } from './Home.style';
+import { ApeNFT, StyledButtonWithTheme } from './Home.style';
 interface ApeNFTProps {
   id: string;
   positionX: number;
@@ -28,12 +29,12 @@ const getRandomApeNFT = () => ({
   src: ApeNFTImgs[randomIntFromInterval(0, 4)],
 });
 
-const getNFTPrice = () => randomIntFromInterval(0,100000);
+const getNFTPrice = () => randomIntFromInterval(0, 100000);
 
 const Home = (): JSX.Element => {
 
   const [score, setScore] = useState(0);
-  
+
   const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([
     getRandomApeNFT(),
     getRandomApeNFT(),
@@ -46,21 +47,25 @@ const Home = (): JSX.Element => {
   };
   const sellApeNFT = (apeNFTId: string) => {
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
-    setScore(prevScore => prevScore + getNFTPrice());}
+    setScore(prevScore => prevScore + getNFTPrice());
+  }
 
   return (
     <Box display="flex" flexDirection="column" height="100vh" maxWidth="100%">
       <AppBar position="sticky">
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">
-          <KumoLogo />
-          <Typography variant="h1">
-            {'Serverless Dojo: Learn serverless with Bored Apes'}
-          </Typography>
-          <Typography variant="h1"  >
-      {`Score : ${score}`}
-        </Typography>
-        </Box>
+            <KumoLogo />
+
+            <Typography variant="h1" style={{ padding: '10px' }} >
+              {'Serverless Dojo: Learn serverless with Bored Apes'}
+            </Typography>
+            <Typography variant="h1" color='lightyellow' border={score > 0 ? '4mm solid green' : '4mm solid red'} style={{padding:'10px', backgroundColor : 'darkorange' }}>
+              {`Score : ${score}`}
+            </Typography>
+          </Box>
+
+
         </Toolbar>
       </AppBar>
       <Box
@@ -90,9 +95,14 @@ const Home = (): JSX.Element => {
           justifyContent="center"
           alignContent="center"
           textAlign="center"
+          style={{ position: 'absolute', marginTop: 200, marginLeft: 400 }}
         >
           <StyledButtonWithTheme onClick={buyApeNFT}>
-            {'Buy ApeNFT'}
+
+            <Typography color='lightblue' fontSize={50} >
+              {'Buy ApeNFT'}
+            </Typography>
+
           </StyledButtonWithTheme>
         </Box>
       </Box>
