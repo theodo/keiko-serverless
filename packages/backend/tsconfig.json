@@ -3,11 +3,13 @@
   "compilerOptions": {
     "preserveSymlinks": true,
     "baseUrl": ".",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@libs/*": ["libs/*"],
+      "@functions/*": ["functions/*"],
+      "@resources/*": ["resources/*"]
+    }
   },
-  "references": [
-    { "path": "../../packages/shared" },
-  ],
   "include": ["./**/*.ts"],
   "ts-node": {
     "files": true
