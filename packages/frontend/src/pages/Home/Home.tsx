@@ -48,6 +48,7 @@ const Home = (): JSX.Element => {
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
     setScore(prevScore => prevScore + getNFTPrice());
   };
+  const audio = useAudio(coin, { volume: 0.8, playbackRate: 1 });
 
   return (
     <Box display="flex" flexDirection="column" height="100vh" maxWidth="100%">
@@ -87,6 +88,7 @@ const Home = (): JSX.Element => {
                 {...apeNFT}
                 onClick={() => {
                   sellApeNFT(apeNFT.id);
+                  audio.play();
                 }}
               ></ApeNFT>
             ))}
