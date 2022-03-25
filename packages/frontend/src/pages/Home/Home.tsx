@@ -9,13 +9,13 @@ import nft4 from 'assets/nft4.png';
 import nft5 from 'assets/nft5.png';
 import { v4 } from 'uuid';
 import axios from 'axios';
-import { useAsync } from 'react-use';
 
 import { ApeNFT, BackgroundPaper } from './Home.style';
 import { useAudio } from 'hooks';
 
 import coin from '../../assets/coin.mp3';
 import kumo from 'assets/kumo.svg';
+import { useAsync } from 'react-use';
 
 const client = axios.create({
   baseURL: process.env.VITE_API_URL,
@@ -26,6 +26,13 @@ interface ApeNFTProps {
   positionX: number;
   positionY: number;
   src: string;
+}
+
+interface ApeNFTData {
+  id: string;
+  positionX: number;
+  positionY: number;
+  src: number;
 }
 
 const ApeNFTImgs = [nft1, nft2, nft3, nft4, nft5];
@@ -45,23 +52,30 @@ const getNFTPrice = () => randomIntFromInterval(0, 100000);
 const Home = (): JSX.Element => {
   const [score, setScore] = useState(0);
 
-  useAsync(async () => {
-    const toto = await client.get<ApeNFTProps[]>('/nfts');
+  const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([]);
 
-    console.log(toto.data);
+  useAsync(async () => {
+    const { data } = await client.get<ApeNFTData[]>('/nfts');
+    setApeNFTs(
+      data.map(apeNFT => ({
+        ...apeNFT,
+        src: ApeNFTImgs[apeNFT.src],
+      })),
+    );
   });
 
-  const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([
-    getRandomApeNFT(),
-    getRandomApeNFT(),
-    getRandomApeNFT(),
-  ]);
+  const buyApeNFT = async () => {
+    const { data } = await client.post<ApeNFTData>(`/nft`);
 
-  const buyApeNFT = () => {
-    setApeNFTs(prevApeNFTs => prevApeNFTs.concat(getRandomApeNFT()));
+    setApeNFTs(prevApeNFTs =>
+      prevApeNFTs.concat({ ...data, src: ApeNFTImgs[data.src] }),
+    );
     setScore(prevScore => prevScore - getNFTPrice());
   };
-  const sellApeNFT = (apeNFTId: string) => {
+
+  const sellApeNFT = async (apeNFTId: string) => {
+    await client.delete<ApeNFTData[]>(`/nft/${apeNFTId}`);
+
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
     setScore(prevScore => prevScore + getNFTPrice());
   };
@@ -73,13 +87,15 @@ const Home = (): JSX.Element => {
         <Toolbar style={{ backgroundColor: '#181173' }}>
           <Button>
             <a href="https://dev.to/kumo">
-              <img src={kumo} width="auto" height="50px" style={{ marginTop: '15px' }} />
+              <img
+                src={kumo}
+                width="auto"
+                height="50px"
+                style={{ marginTop: '15px' }}
+              />
             </a>
           </Button>
-          <Typography
-            variant="h1"
-            sx={{ flexGrow: 1 }}
-          >
+          <Typography variant="h1" sx={{ flexGrow: 1 }}>
             {'Learn Serverless with Bored Apes'}
           </Typography>
           <Typography
@@ -93,7 +109,7 @@ const Home = (): JSX.Element => {
             }}
             border={score > 0 ? '4mm solid green' : '4mm solid red'}
           >
-            {`Score: ${score.toString().padStart(10, " ")} $`}
+            {`Score: ${score.toString().padStart(10, ' ')} $`}
           </Typography>
         </Toolbar>
       </AppBar>
