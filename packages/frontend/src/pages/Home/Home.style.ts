@@ -1,14 +1,11 @@
-import { Button, Typography } from '@mui/material';
-
+import { Button, Paper, Typography } from '@mui/material';
+import Image from '../../assets/background.png';
 
 import { styled } from 'theme';
-const StyledButtonWithTheme = styled(Button)`
-  height: 10vh;
-  background: darkorange;
-`;
 
-const StyledButton = styled(Button)`
-  background: red;
+const BackgroundPaper = styled(Paper)`
+  background-image: url(${Image});
+  background-size: 100% 100%;
 `;
 
 interface ApeNFTProps {
@@ -26,6 +23,4 @@ const ApeNFT = styled('img')<ApeNFTProps>`
   cursor: not-allowed;
 `;
 
-
-
-export { StyledButton, StyledButtonWithTheme, ApeNFT };
+export { ApeNFT, BackgroundPaper };

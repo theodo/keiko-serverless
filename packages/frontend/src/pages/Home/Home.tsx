@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { KumoLogo } from 'components/KumoLogo';
 
@@ -10,7 +10,11 @@ import nft4 from 'assets/nft4.png';
 import nft5 from 'assets/nft5.png';
 import { v4 } from 'uuid';
 
-import { ApeNFT, StyledButtonWithTheme } from './Home.style';
+import { ApeNFT, BackgroundPaper } from './Home.style';
+import { useAudio } from 'hooks';
+
+import coin from '../../assets/coin.mp3';
+
 interface ApeNFTProps {
   id: string;
   positionX: number;
@@ -32,7 +36,6 @@ const getRandomApeNFT = () => ({
 const getNFTPrice = () => randomIntFromInterval(0, 100000);
 
 const Home = (): JSX.Element => {
-
   const [score, setScore] = useState(0);
 
   const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([
@@ -48,64 +51,81 @@ const Home = (): JSX.Element => {
   const sellApeNFT = (apeNFTId: string) => {
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
     setScore(prevScore => prevScore + getNFTPrice());
-  }
+  };
+  const audio = useAudio(coin, { volume: 0.8, playbackRate: 1 });
 
   return (
     <Box display="flex" flexDirection="column" height="100vh" maxWidth="100%">
       <AppBar position="sticky">
-        <Toolbar>
+        <Toolbar style={{ backgroundColor: '#181173' }}>
           <Box display="flex" justifyContent="space-between" width="100%">
             <KumoLogo />
-
-            <Typography variant="h1" style={{ padding: '10px' }} >
+            <Typography
+              variant="h1"
+              style={{ padding: '10px', marginTop: '10px' }}
+            >
               {'Serverless Dojo: Learn serverless with Bored Apes'}
             </Typography>
-            <Typography variant="h1" color='lightyellow' border={score > 0 ? '4mm solid green' : '4mm solid red'} style={{padding:'10px', backgroundColor : 'darkorange' }}>
-              {`Score : ${score}`}
+            <Typography
+              variant="h1"
+              color={score > 0 ? 'green' : 'red'}
+              style={{
+                padding: '10px',
+                backgroundColor: '#f2b056',
+                marginTop: '5px',
+                marginBottom: '5px',
+              }}
+              border={score > 0 ? '4mm solid green' : '4mm solid red'}
+            >
+              {`Score : ${score} $`}
             </Typography>
           </Box>
-
-
         </Toolbar>
       </AppBar>
-      <Box
-        display="flex"
-        flexDirection="row"
-        height="100vh"
-        paddingLeft="10%"
-        paddingRight="10%"
-        justifyContent="space-between"
-        maxWidth="100%"
-      >
-        <Box>
-          {apeNFTs.map(apeNFT => (
-            <ApeNFT
-              height="100px"
-              key={apeNFT.id}
-              {...apeNFT}
-              onClick={() => {
-                sellApeNFT(apeNFT.id);
-              }}
-            ></ApeNFT>
-          ))}
-        </Box>
+      <BackgroundPaper>
         <Box
           display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignContent="center"
-          textAlign="center"
-          style={{ position: 'absolute', marginTop: 200, marginLeft: 400 }}
+          flexDirection="row"
+          height="100vh"
+          paddingLeft="10%"
+          paddingRight="10%"
+          justifyContent="space-between"
+          maxWidth="100%"
         >
-          <StyledButtonWithTheme onClick={buyApeNFT}>
-
-            <Typography color='lightblue' fontSize={50} >
-              {'Buy ApeNFT'}
-            </Typography>
-
-          </StyledButtonWithTheme>
+          <Box>
+            {apeNFTs.map(apeNFT => (
+              <ApeNFT
+                height="100px"
+                key={apeNFT.id}
+                {...apeNFT}
+                onClick={() => {
+                  sellApeNFT(apeNFT.id);
+                  audio.play();
+                }}
+              ></ApeNFT>
+            ))}
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignContent="center"
+            textAlign="center"
+            style={{
+              position: 'absolute',
+              top: '35%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            <Button onClick={buyApeNFT}>
+              <Typography color="lightblue" fontSize={50}>
+                {'Buy ApeNFT'}
+              </Typography>
+            </Button>
+          </Box>
         </Box>
-      </Box>
+      </BackgroundPaper>
     </Box>
   );
 };
