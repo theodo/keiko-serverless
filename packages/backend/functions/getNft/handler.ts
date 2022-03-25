@@ -1,5 +1,5 @@
-export const main = async (): Promise<string> => {
-  await Promise.resolve();
+import { NFT } from "@libs/dynamodb-toolbox/nftEntity";
 
-  return 'ok';
+export const main = async (): Promise<string> => {
+  return NFT.query("Nft");
 };
