@@ -60,12 +60,11 @@ const Home = (): JSX.Element => {
         <Toolbar style={{ backgroundColor: '#181173' }}>
           <Box display="flex" justifyContent="space-between" width="100%">
             <KumoLogo />
-            <Typography
-              variant="h1"
-              style={{ padding: '10px', marginTop: '10px' }}
-            >
-              {'Serverless Dojo: Learn serverless with Bored Apes'}
-            </Typography>
+            <Box display="flex" alignItems="center">
+              <Typography variant="h1">
+                {'Serverless Dojo: Learn serverless with Bored Apes'}
+              </Typography>
+            </Box>
             <Typography
               variant="h1"
               color={score > 0 ? 'green' : 'red'}
