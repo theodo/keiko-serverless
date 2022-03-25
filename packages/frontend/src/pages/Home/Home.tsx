@@ -93,7 +93,7 @@ const Home = (): JSX.Element => {
             }}
             border={score > 0 ? '4mm solid green' : '4mm solid red'}
           >
-            {`Score : ${score} $`}
+            {`Score: ${score.toString().padStart(10, " ")} $`}
           </Typography>
         </Toolbar>
       </AppBar>
