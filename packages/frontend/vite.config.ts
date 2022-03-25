@@ -24,5 +24,10 @@ export default defineConfig(({ mode }) => {
   return {
     define: envWithProcessPrefix,
     plugins,
+    resolve: {
+      alias: {
+        './runtimeConfig': './runtimeConfig.browser',
+      },
+    },
   };
 });

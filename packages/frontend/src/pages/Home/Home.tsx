@@ -9,11 +9,17 @@ import nft3 from 'assets/nft3.png';
 import nft4 from 'assets/nft4.png';
 import nft5 from 'assets/nft5.png';
 import { v4 } from 'uuid';
+import axios from 'axios';
+import { useAsync } from 'react-use';
 
 import { ApeNFT, BackgroundPaper } from './Home.style';
 import { useAudio } from 'hooks';
 
 import coin from '../../assets/coin.mp3';
+
+const client = axios.create({
+  baseURL: process.env.VITE_API_URL,
+});
 
 interface ApeNFTProps {
   id: string;
@@ -21,6 +27,7 @@ interface ApeNFTProps {
   positionY: number;
   src: string;
 }
+
 const ApeNFTImgs = [nft1, nft2, nft3, nft4, nft5];
 
 const randomIntFromInterval = (min: number, max: number) =>
@@ -37,6 +44,12 @@ const getNFTPrice = () => randomIntFromInterval(0, 100000);
 
 const Home = (): JSX.Element => {
   const [score, setScore] = useState(0);
+
+  useAsync(async () => {
+    const toto = await client.get<ApeNFTProps[]>('/nfts');
+
+    console.log(toto.data);
+  });
 
   const [apeNFTs, setApeNFTs] = useState<ApeNFTProps[]>([
     getRandomApeNFT(),

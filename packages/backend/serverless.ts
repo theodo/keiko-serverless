@@ -25,13 +25,12 @@ const serverlessConfiguration: AWS = {
     },
     httpApi: {
       payload: '2.0',
-      // cors: {
-      //   // @ts-ignore we use a configuration per environment so we put it as a serverless variable
-      //   allowedOrigins: '${param:apiGatewayCorsAllowedOrigins}',
-      //   allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
-      //   allowedMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-      //   allowCredentials: true,
-      // },
+      cors: {
+        allowedOrigins: ['http://localhost:3000'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin'],
+        allowedMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        allowCredentials: true,
+      },
       metrics: true,
     },
   },
