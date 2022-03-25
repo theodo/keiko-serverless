@@ -65,7 +65,7 @@ const Home = (): JSX.Element => {
               border={score > 0 ? '4mm solid green' : '4mm solid red'}
               style={{ padding: '10px', backgroundColor: 'darkorange' }}
             >
-              {`Score : ${score}`}
+              {`Score : ${score} $`}
             </Typography>
           </Box>
         </Toolbar>
