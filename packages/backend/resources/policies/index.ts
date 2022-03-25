@@ -6,6 +6,11 @@ export const nftTableDynamoDBWritePolicies = {
   Action: ['dynamodb:PutItem', 'dynamodb:UpdateItem'],
 }
 
+export const nftTableDynamoDBDeletePolicies = {
+  Effect: 'Allow',
+  Resource: [tableArn],
+  Action: ['dynamodb:DeleteItem'],
+}
 
 export const nftTableDynamoDBReadPolicies = {
   Effect: 'Allow',
