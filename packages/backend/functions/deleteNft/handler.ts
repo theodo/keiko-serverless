@@ -1,4 +1,4 @@
-import { NFT } from "@libs/dynamodb-toolbox/nftEntity";
+import { NFTEntity } from "@libs/dynamodb-toolbox/nftEntity";
 import { PARTITION_KEY, SORT_KEY } from "@resources/dynamoDB";
 
 export const main = async (event: { pathParameters: { id: string }}): Promise<string> => {
@@ -6,5 +6,5 @@ export const main = async (event: { pathParameters: { id: string }}): Promise<st
     [PARTITION_KEY]: "Nft",
     [SORT_KEY]: event.pathParameters.id,
   }
-  return NFT.delete(nftToDelete);
+  return NFTEntity.delete(nftToDelete);
 };
