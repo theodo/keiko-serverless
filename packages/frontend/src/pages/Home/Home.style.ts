@@ -1,5 +1,5 @@
-import { Button, Typography } from '@mui/material';
-
+import { Button, Paper, Typography } from '@mui/material';
+import Image from '../../assets/background.png'; // Import using relative path
 
 import { styled } from 'theme';
 const StyledButtonWithTheme = styled(Button)`
@@ -9,6 +9,10 @@ const StyledButtonWithTheme = styled(Button)`
 
 const StyledButton = styled(Button)`
   background: red;
+`;
+
+const BackgroundPaper = styled(Paper)`
+  background-image: url(${Image});
 `;
 
 interface ApeNFTProps {
@@ -26,6 +30,4 @@ const ApeNFT = styled('img')<ApeNFTProps>`
   cursor: not-allowed;
 `;
 
-
-
-export { StyledButton, StyledButtonWithTheme, ApeNFT };
+export { StyledButton, StyledButtonWithTheme, ApeNFT, BackgroundPaper };
