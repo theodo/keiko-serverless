@@ -9,7 +9,7 @@ export const NFTEntity = new Entity({
     id: { type: 'string', sortKey: true },
     positionX: { type: 'number' },
     positionY: { type: 'number' },
-    src: { type: 'string' },
+    imageIndex: { type: 'number' },
   },
   table: nftTable,
 } as const);

@@ -3,7 +3,7 @@ import { nftTableDynamoDBDeletePolicies } from '@resources/policies';
 
 export const deleteNft = {
   environment: {},
-  iamRoleStatements: [ nftTableDynamoDBDeletePolicies ],
+  iamRoleStatements: [nftTableDynamoDBDeletePolicies],
   handler: getHandlerPath(__dirname),
   events: [
     {
