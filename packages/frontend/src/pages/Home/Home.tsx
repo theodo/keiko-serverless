@@ -1,6 +1,5 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { KumoLogo } from 'components/KumoLogo';
 
 import { useState } from 'react';
 import nft1 from 'assets/nft1.png';
@@ -16,6 +15,7 @@ import { ApeNFT, BackgroundPaper } from './Home.style';
 import { useAudio } from 'hooks';
 
 import coin from '../../assets/coin.mp3';
+import kumo from 'assets/kumo.svg';
 
 const client = axios.create({
   baseURL: process.env.VITE_API_URL,
@@ -71,27 +71,30 @@ const Home = (): JSX.Element => {
     <Box display="flex" flexDirection="column" height="100vh" maxWidth="100%">
       <AppBar position="sticky">
         <Toolbar style={{ backgroundColor: '#181173' }}>
-          <Box display="flex" justifyContent="space-between" width="100%">
-            <KumoLogo />
-            <Box display="flex" alignItems="center">
-              <Typography variant="h1">
-                {'Serverless Dojo: Learn serverless with Bored Apes'}
-              </Typography>
-            </Box>
-            <Typography
-              variant="h1"
-              color={score > 0 ? 'green' : 'red'}
-              style={{
-                padding: '10px',
-                backgroundColor: '#f2b056',
-                marginTop: '5px',
-                marginBottom: '5px',
-              }}
-              border={score > 0 ? '4mm solid green' : '4mm solid red'}
-            >
-              {`Score : ${score} $`}
-            </Typography>
-          </Box>
+          <Button>
+            <a href="https://dev.to/kumo">
+              <img src={kumo} width="auto" height="50px" style={{ marginTop: '15px' }} />
+            </a>
+          </Button>
+          <Typography
+            variant="h1"
+            sx={{ flexGrow: 1 }}
+          >
+            {'Learn Serverless with Bored Apes'}
+          </Typography>
+          <Typography
+            variant="h1"
+            color={score > 0 ? 'green' : 'red'}
+            style={{
+              padding: '10px',
+              backgroundColor: '#f2b056',
+              marginTop: '5px',
+              marginBottom: '5px',
+            }}
+            border={score > 0 ? '4mm solid green' : '4mm solid red'}
+          >
+            {`Score: ${score.toString().padStart(10, " ")} $`}
+          </Typography>
         </Toolbar>
       </AppBar>
       <BackgroundPaper>
