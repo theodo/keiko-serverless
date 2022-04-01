@@ -3,7 +3,7 @@ import { nftTableDynamoDBReadPolicies } from '@resources/policies';
 
 export const getNft = {
   environment: {},
-  iamRoleStatements: [ nftTableDynamoDBReadPolicies ],
+  iamRoleStatements: [nftTableDynamoDBReadPolicies],
   handler: getHandlerPath(__dirname),
   events: [
     {

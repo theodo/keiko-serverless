@@ -32,7 +32,7 @@ interface ApeNFTData {
   id: string;
   positionX: number;
   positionY: number;
-  src: number;
+  imageIndex: number;
 }
 
 const ApeNFTImgs = [nft1, nft2, nft3, nft4, nft5];
@@ -59,22 +59,22 @@ const Home = (): JSX.Element => {
     setApeNFTs(
       data.map(apeNFT => ({
         ...apeNFT,
-        src: ApeNFTImgs[apeNFT.src],
+        src: ApeNFTImgs[apeNFT.imageIndex],
       })),
     );
   });
 
   const buyApeNFT = async () => {
-    const { data } = await client.post<ApeNFTData>(`/nft`);
+    const { data } = await client.post<ApeNFTData>(`/nfts`);
 
     setApeNFTs(prevApeNFTs =>
-      prevApeNFTs.concat({ ...data, src: ApeNFTImgs[data.src] }),
+      prevApeNFTs.concat({ ...data, src: ApeNFTImgs[data.imageIndex] }),
     );
     setScore(prevScore => prevScore - getNFTPrice());
   };
 
   const sellApeNFT = async (apeNFTId: string) => {
-    await client.delete<ApeNFTData[]>(`/nft/${apeNFTId}`);
+    await client.delete(`/nfts/${apeNFTId}`);
 
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
     setScore(prevScore => prevScore + getNFTPrice());

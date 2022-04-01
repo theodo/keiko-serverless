@@ -9,7 +9,7 @@ export const deleteNft = {
     {
       httpApi: {
         method: 'delete',
-        path: '/nft/{id}',
+        path: '/nfts/{id}',
       },
     },
   ],

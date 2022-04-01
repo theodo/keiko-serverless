@@ -11,7 +11,7 @@ export const main = async (): Promise<any> => {
     id,
     positionX: randomIntFromInterval(5, 90),
     positionY: randomIntFromInterval(10, 90),
-    src: Math.floor(Math.random() * 5),
+    imageIndex: Math.floor(Math.random() * 5),
   };
 
   await NFTEntity.put(nftItem);

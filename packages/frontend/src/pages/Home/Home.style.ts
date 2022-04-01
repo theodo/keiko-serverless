@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from '@mui/material';
+import Paper from '@mui/material/Paper';
 import Image from '../../assets/background.png';
 
 import { styled } from 'theme';
