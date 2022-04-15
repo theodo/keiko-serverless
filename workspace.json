@@ -2,7 +2,6 @@
   "version": 2,
   "projects": {
     "backend": "packages/backend",
-    "frontend": "packages/frontend",
-    "shared": "packages/shared"
+    "frontend": "packages/frontend"
   }
 }

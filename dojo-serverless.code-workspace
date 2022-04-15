@@ -48,19 +48,15 @@
   "folders": [
     {
       "path": ".",
-      "name": "dojo-serverless root"
+      "name": "🌍 dojo-serverless root"
     },
     {
       "path": "packages/backend",
-      "name": "backend [service]"
-    },
-    {
-      "path": "packages/shared",
-      "name": "shared [library]"
+      "name": "📡 backend [service]"
     },
     {
       "path": "packages/frontend",
-      "name": "frontend app [site]"
+      "name": "🏞 frontend app [site]"
     }
   ]
 }
