@@ -7,7 +7,6 @@ import nft2 from 'assets/nft2.png';
 import nft3 from 'assets/nft3.png';
 import nft4 from 'assets/nft4.png';
 import nft5 from 'assets/nft5.png';
-import { v4 } from 'uuid';
 import axios from 'axios';
 
 import { ApeNFT, BackgroundPaper } from './Home.style';
@@ -39,13 +38,6 @@ const ApeNFTImgs = [nft1, nft2, nft3, nft4, nft5];
 
 const randomIntFromInterval = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1) + min);
-
-const getRandomApeNFT = () => ({
-  id: v4(),
-  positionX: randomIntFromInterval(5, 90),
-  positionY: randomIntFromInterval(10, 90),
-  src: ApeNFTImgs[randomIntFromInterval(0, 4)],
-});
 
 const getNFTPrice = () => randomIntFromInterval(0, 100000);
 
