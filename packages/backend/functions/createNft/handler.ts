@@ -7,7 +7,6 @@ const randomIntFromInterval = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
 export const main = async (): Promise<any> => {
-  console.log(event);
   const id = crypto.randomUUID();
   const params = {
     TableName: process.env.NFT_TABLE_NAME,
