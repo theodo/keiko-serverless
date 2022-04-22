@@ -11,7 +11,7 @@ export const main = async (): Promise<any> => {
   const params = {
     TableName: process.env.NFT_TABLE_NAME,
     Item: {
-      PK: { S: 'NFT' },
+      PK: { S: 'Nft' },
       SK: { S: id },
       positionX: { S: randomIntFromInterval(5, 90).toString() },
       positionY: { S: randomIntFromInterval(10, 90).toString() },
