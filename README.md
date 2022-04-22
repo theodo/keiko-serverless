@@ -11,5 +11,5 @@ Useful information:
 - Core subjects: AWS console, AWS Lambda, AWS DynamoDB, [Serverless Framework](https://www.serverless.com/framework/docs), Typescript, [Nx](https://nx.dev/) (monorepo technology)
 
 
-WIP
-https://www.notion.so/m33/NFT-Clicker-daa46f43376043bfab3fab66f84b46d1
+
+
