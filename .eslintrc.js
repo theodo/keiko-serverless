@@ -70,7 +70,7 @@ module.exports = {
       {
         patterns: [
           {
-            group: ['@dojo-serverless/*/*'],
+            group: ['@keiko-serverless/*/*'],
             message:
               'import of internal modules must be done at the root level.',
           },

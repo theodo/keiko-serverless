@@ -27,7 +27,7 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "jest.autoRun": "off",
     "jest.disabledWorkspaceFolders": [
-      "dojo-serverless root",
+      "keiko-serverless root",
     ],
     "jest.jestCommandLine": "yarn jest",
     "jest.showCoverageOnLoad": true,
@@ -48,7 +48,7 @@
   "folders": [
     {
       "path": ".",
-      "name": "🌍 dojo-serverless root"
+      "name": "🌍 keiko-serverless root"
     },
     {
       "path": "packages/backend",
