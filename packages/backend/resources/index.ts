@@ -1,7 +1,7 @@
 import { App, Stack } from '@aws-cdk/core';
 import { AttributeType, Table } from '@aws-cdk/aws-dynamodb';
 
-import { CloudFormationTemplate } from '@libs/configHelper/cloudformation';
+import { CloudFormationTemplate } from 'libs/configHelper/cloudformation';
 import { PARTITION_KEY, SORT_KEY } from './dynamoDB';
 
 const app = new App();
