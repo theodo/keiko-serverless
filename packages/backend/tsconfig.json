@@ -4,11 +4,6 @@
     "preserveSymlinks": true,
     "baseUrl": ".",
     "esModuleInterop": true,
-    "paths": {
-      "@libs/*": ["libs/*"],
-      "@functions/*": ["functions/*"],
-      "@resources/*": ["resources/*"]
-    }
   },
   "include": ["./**/*.ts"],
   "ts-node": {
