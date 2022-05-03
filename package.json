@@ -27,6 +27,7 @@
     "watch": "nx run-many --target=watch --all  --parallel=4"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.82.0",
     "dynamodb-toolbox": "^0.3.5"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
     "@nrwl/tao": "^13.8.3",
     "@nrwl/workspace": "^13.8.3",
     "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.31",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "aws-sdk": "^2.1080.0",
