@@ -20,6 +20,7 @@
     "test:stylelint": "yarn stylelint-base-config **/*.{ts,tsx}"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.121.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
