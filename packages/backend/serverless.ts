@@ -9,7 +9,11 @@ const serverlessConfiguration: AWS = {
   service: `${projectName}`, // Keep it short to have role name below 64
   frameworkVersion: '>=3.0.0',
   configValidationMode: 'error',
-  plugins: ['serverless-esbuild', 'serverless-iam-roles-per-function'],
+  plugins: [
+    'serverless-esbuild',
+    'serverless-iam-roles-per-function',
+    'serverless-better-credentials',
+  ],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
