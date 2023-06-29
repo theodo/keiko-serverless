@@ -26,12 +26,11 @@
     },
     "typescript.tsdk": "node_modules/typescript/lib",
     "jest.autoRun": "off",
-    "jest.disabledWorkspaceFolders": [
-      "keiko-serverless root",
-    ],
+    "jest.disabledWorkspaceFolders": ["keiko-serverless root"],
     "jest.jestCommandLine": "yarn jest",
     "jest.showCoverageOnLoad": true,
-    "jest.coverageFormatter": "DefaultFormatter"
+    "jest.coverageFormatter": "DefaultFormatter",
+    "cSpell.words": ["keiko"]
   },
   "extensions": {
     "recommendations": [
