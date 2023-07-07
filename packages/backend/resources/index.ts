@@ -1,7 +1,6 @@
-import { App, RemovalPolicy, Stack } from '@aws-cdk/core';
-import { AttributeType, Table, BillingMode } from '@aws-cdk/aws-dynamodb';
+import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
+import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
 
-import { CloudFormationTemplate } from 'libs/configHelper/cloudformation';
 import { PARTITION_KEY, SORT_KEY } from './dynamoDB';
 
 const app = new App();
@@ -17,5 +16,11 @@ const table = new Table(stack, 'NFTtable', {
 export const tableArn = stack.resolve(table.tableArn);
 export const tableName = stack.resolve(table.tableName);
 
-export const resources = app.synth().getStackByName(stack.stackName)
-  .template as CloudFormationTemplate;
+/**
+ * Do not keep 'Rules' nor 'Parameters' to avoid the following errors (without resorting to cdk bridge plugin):
+ *   Error: Invalid configuration encountered
+ *     at 'resources': unrecognized property 'Rules'
+ *   Error:
+ *   Unable to fetch parameters [/cdk-bootstrap/hnb659fds/version] from parameter store for this account.
+ */
+export const resources = { Resources: app.synth().getStackByName(stack.stackName).template.Resources };
