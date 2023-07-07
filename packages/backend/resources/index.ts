@@ -1,6 +1,5 @@
 import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
 import { AttributeType, BillingMode, Table } from 'aws-cdk-lib/aws-dynamodb';
-
 import { PARTITION_KEY, SORT_KEY } from './dynamoDB';
 
 const app = new App();
