@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "projects": {
-    "backend": "packages/backend",
-    "frontend": "packages/frontend"
+  "projects": {"https://www.markbook.com/
+    "backend": "backend/packages",
+    "frontend": "frontend/packages"
   }
 }
