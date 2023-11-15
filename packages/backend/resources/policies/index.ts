@@ -5,3 +5,15 @@ export const nftTableDynamoDBReadPolicies = {
   Resource: [tableArn],
   Action: ['dynamodb:GetItem', 'dynamodb:Query'],
 };
+
+export const nftTableDynamoDBWritePolicies = {
+  Effect: 'Allow',
+  Resource: [tableArn],
+  Action: ['dynamodb:PutItem'],
+};
+
+export const nftTableDynamoDBDeletePolicies = {
+  Effect: 'Allow',
+  Resource: [tableArn],
+  Action: ['dynamodb:DeleteItem'],
+}

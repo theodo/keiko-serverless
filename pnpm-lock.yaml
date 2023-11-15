@@ -89,13 +89,22 @@ importers:
       '@aws-sdk/client-dynamodb':
         specifier: ^3.370.0
         version: 3.370.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.451.0
+        version: 3.451.0(@aws-sdk/client-dynamodb@3.370.0)
       '@aws-sdk/util-dynamodb':
         specifier: 3.370.0
         version: 3.370.0
+      dynamodb-toolbox:
+        specifier: ^0.9.2
+        version: 0.9.2(@aws-sdk/client-dynamodb@3.370.0)(@aws-sdk/lib-dynamodb@3.451.0)
     devDependencies:
       '@serverless/typescript':
         specifier: ^3.30.1
         version: 3.30.1
+      '@types/aws-lambda':
+        specifier: ^8.10.126
+        version: 8.10.126
       '@types/jest':
         specifier: ^29.5.3
         version: 29.5.3
@@ -646,6 +655,17 @@ packages:
       tslib: 2.6.0
     dev: false
 
+  /@aws-sdk/lib-dynamodb@3.451.0(@aws-sdk/client-dynamodb@3.370.0):
+    resolution: {integrity: sha512-k0VrjPDpEZHrKpW4/8eY4s8y8RuIFP3BG3NP0JLaPJe3oOa29tvZtdep/+iY10zoIWEn5TLQtsyS7mnbFyqAtg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.0.0
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.370.0
+      '@aws-sdk/util-dynamodb': 3.451.0(@aws-sdk/client-dynamodb@3.370.0)
+      tslib: 2.6.0
+    dev: false
+
   /@aws-sdk/middleware-endpoint-discovery@3.370.0:
     resolution: {integrity: sha512-CxTo+AUW1XIT0U1COzBjdQ39eWbWk5Sv9OmA73g1vHwwvy9M3vFl78cnaKnauGv7BI/NtM5IeRy0w5T22BtWgg==}
     engines: {node: '>=14.0.0'}
@@ -746,6 +766,16 @@ packages:
     resolution: {integrity: sha512-qqCm5avefrBnqXjSmw7g9Rzz3KpYDUlQwMxSQwhjaofXggo8khx/8wbcN9V8XzF1K/4gJCMymxzCkFWWq964HA==}
     engines: {node: '>=14.0.0'}
     dependencies:
+      tslib: 2.6.0
+    dev: false
+
+  /@aws-sdk/util-dynamodb@3.451.0(@aws-sdk/client-dynamodb@3.370.0):
+    resolution: {integrity: sha512-i1pPCD03blN1gmy/+KiVCwiMjvRN9qj0YnmqfSvkE2tlug1GnO7LzUDlNmw/awXanVTu0ijiJhOh2m4XhtQBEg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.0.0
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.370.0
       tslib: 2.6.0
     dev: false
 
@@ -1237,6 +1267,10 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
+
+  /@balena/dockerignore@1.0.2:
+    resolution: {integrity: sha512-wMue2Sy4GAVTk6Ic4tJVcnfdau+gx2EnG7S+uAEe+TWJFqE4YoWN4/H8MSLj4eYJKxGg26lZwboEniNiNwZQ6Q==}
+    dev: true
 
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
@@ -3984,6 +4018,10 @@ packages:
     resolution: {integrity: sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==}
     dev: true
 
+  /@types/aws-lambda@8.10.126:
+    resolution: {integrity: sha512-5eh4ffLdGYgGYI1Xr6W5L4IVse4RR7L2ns5OVUXA52nW5GFapIcGMcCzHAIMMOdpcQs3aGVxbvFlJNZH6IpgEQ==}
+    dev: true
+
   /@types/babel__core@7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
     dependencies:
@@ -4367,7 +4405,7 @@ packages:
       debug: 4.3.4(supports-color@8.1.1)
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.5.3
+      semver: 7.5.4
       tsutils: 3.21.0(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
@@ -4870,7 +4908,17 @@ packages:
       '@aws-cdk/asset-awscli-v1': 2.2.200
       '@aws-cdk/asset-kubectl-v20': 2.1.2
       '@aws-cdk/asset-node-proxy-agent-v5': 2.0.166
+      '@balena/dockerignore': 1.0.2
+      case: 1.6.3
       constructs: 10.2.69
+      fs-extra: 11.1.1
+      ignore: 5.2.4
+      jsonschema: 1.4.1
+      minimatch: 3.1.2
+      punycode: 2.3.0
+      semver: 7.5.4
+      table: 6.8.1
+      yaml: 1.10.2
     dev: true
     bundledDependencies:
       - '@balena/dockerignore'
@@ -5382,6 +5430,11 @@ packages:
 
   /caniuse-lite@1.0.30001517:
     resolution: {integrity: sha512-Vdhm5S11DaFVLlyiKu4hiUTkpZu+y1KA/rZZqVQfOD5YdDT/eQKlkt7NaE0WGOFgX32diqt9MiP9CAiFeRklaA==}
+    dev: true
+
+  /case@1.6.3:
+    resolution: {integrity: sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==}
+    engines: {node: '>= 0.8.0'}
     dev: true
 
   /ccount@1.1.0:
@@ -6108,6 +6161,11 @@ packages:
     resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==}
     dev: true
 
+  /deep-copy@1.4.2:
+    resolution: {integrity: sha512-VxZwQ/1+WGQPl5nE67uLhh7OqdrmqI1OazrraO9Bbw/M8Bt6Mol/RxzDA6N6ZgRXpsG/W9PgUj8E1LHHBEq2GQ==}
+    engines: {node: '>=4.0.0'}
+    dev: false
+
   /deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
@@ -6362,6 +6420,19 @@ packages:
       d: 1.0.1
       es5-ext: 0.10.62
     dev: true
+
+  /dynamodb-toolbox@0.9.2(@aws-sdk/client-dynamodb@3.370.0)(@aws-sdk/lib-dynamodb@3.451.0):
+    resolution: {integrity: sha512-vBn6baXXritGmin90f6nF5ufZqNjbVhl20jUKdmAAgwmSMBa/CQ3U81Ypr37c+NFeaYOk63ZmoDiraAKXtB7wQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.0.0
+      '@aws-sdk/lib-dynamodb': ^3.0.0
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.370.0
+      '@aws-sdk/lib-dynamodb': 3.451.0(@aws-sdk/client-dynamodb@3.370.0)
+      deep-copy: 1.4.2
+      ts-toolbelt: 9.6.0
+    dev: false
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -7851,7 +7922,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -9907,6 +9978,10 @@ packages:
   /jsonparse@1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
+    dev: true
+
+  /jsonschema@1.4.1:
+    resolution: {integrity: sha512-S6cATIPVv1z0IlxdN+zUk5EPjkGCdnhN4wVSBlvoUO1tOLJootbo9CquNJmbIh4yikWHiUedhRYrNPn1arpEmQ==}
     dev: true
 
   /jss-plugin-camel-case@10.10.0:
@@ -13376,7 +13451,7 @@ packages:
       mime: 2.6.0
       qs: 6.11.2
       readable-stream: 3.6.2
-      semver: 7.5.3
+      semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -13872,7 +13947,6 @@ packages:
 
   /ts-toolbelt@9.6.0:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
-    dev: true
 
   /tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
