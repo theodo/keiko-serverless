@@ -12,6 +12,7 @@ export const NFTEntity = new Entity(
       positionX: { type: 'number', required: true },
       positionY: { type: 'number', required: true },
       imageIndex: { type: 'number', required: true },
+      price: { type: 'number', required: true },
     },
     table: nftTable,
   } as const

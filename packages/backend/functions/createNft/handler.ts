@@ -15,6 +15,7 @@ export const main = async (): Promise<any> => {
     positionX: randomNumberBetween(20, 100),
     positionY: randomNumberBetween(20, 100),
     imageIndex: randomNumberBetween(0, 4),
+    price: randomNumberBetween(0, 100000),
   };
 
   await NFTEntity.put(item);

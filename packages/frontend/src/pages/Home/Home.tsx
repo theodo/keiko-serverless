@@ -32,14 +32,10 @@ interface ApeNFTData {
   positionX: number;
   positionY: number;
   imageIndex: number;
+  price: number;
 }
 
 const ApeNFTImgs = [nft1, nft2, nft3, nft4, nft5];
-
-const randomIntFromInterval = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
-const getNFTPrice = () => randomIntFromInterval(0, 100000);
 
 const Home = (): JSX.Element => {
   const [score, setScore] = useState(0);
@@ -62,14 +58,17 @@ const Home = (): JSX.Element => {
     setApeNFTs(prevApeNFTs =>
       prevApeNFTs.concat({ ...data, src: ApeNFTImgs[data.imageIndex] }),
     );
-    setScore(prevScore => prevScore - getNFTPrice());
+    setScore(prevScore => prevScore - data.price);
   };
 
   const sellApeNFT = async (apeNFTId: string) => {
+    const {
+      data: { price },
+    } = await client.get<ApeNFTData>(`/nfts/${apeNFTId}`);
     await client.delete(`/nfts/${apeNFTId}`);
 
     setApeNFTs(prevApeNFTs => prevApeNFTs.filter(({ id }) => id !== apeNFTId));
-    setScore(prevScore => prevScore + getNFTPrice());
+    setScore(prevScore => prevScore + price);
   };
   const audio = useAudio(coin, { volume: 0.8, playbackRate: 1 });
 

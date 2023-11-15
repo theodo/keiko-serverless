@@ -13,5 +13,11 @@ export const getNft = {
         path: '/nfts',
       },
     },
+    {
+      httpApi: {
+        method: 'get',
+        path: '/nfts/{id}',
+      },
+    },
   ],
 };
