@@ -1,9 +1,7 @@
 {
-  "extends": "@nrwl/workspace/presets/npm.json",
   "npmScope": "keiko-serverless",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
         "cacheableOperations": [
           "build",
@@ -20,57 +18,28 @@
       }
     }
   },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "deploy": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      },
-      {
-        "target": "build",
-        "projects": "dependencies"
-      },
-      {
-        "target": "deploy",
-        "projects": "dependencies"
-      }
-    ],
-    "package": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-linter": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-type": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-unit": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ]
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["package"]
+    },
+    "deploy": {
+      "dependsOn": ["package", "build", "deploy"]
+    },
+    "package": {
+      "dependsOn": ["package"]
+    },
+    "test": {
+      "dependsOn": ["package"]
+    },
+    "test-linter": {
+      "dependsOn": ["package"]
+    },
+    "test-type": {
+      "dependsOn": ["package"]
+    },
+    "test-unit": {
+      "dependsOn": ["package"]
+    }
   },
   "affected": {
     "defaultBase": "main"
