@@ -1,44 +1,40 @@
 {
   "npmScope": "keiko-serverless",
-  "tasksRunnerOptions": {
-    "default": {
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "package",
-          "test",
-          "test-all",
-          "test-type",
-          "test-linter",
-          "test-stylelint",
-          "test-unit"
-        ],
-        "cacheDirectory": "nx-cache",
-        "useDaemonProcess": false
-      }
-    }
-  },
+  "extends": "nx/presets/npm.json",
+  "useDaemonProcess": false,
   "targetDefaults": {
     "build": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
     },
     "deploy": {
       "dependsOn": ["package", "build", "deploy"]
     },
     "package": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
     },
     "test": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
     },
     "test-linter": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
     },
     "test-type": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
     },
     "test-unit": {
-      "dependsOn": ["package"]
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test-all": {
+      "cache": true
+    },
+    "test-stylelint": {
+      "cache": true
     }
   },
   "affected": {
