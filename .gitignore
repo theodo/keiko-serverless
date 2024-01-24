@@ -43,7 +43,7 @@ yarn-error.log*
 event.json
 
 # Nx caching
-nx-cache
+.nx/cache
 
 # yarn
 .pnp.*

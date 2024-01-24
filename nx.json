@@ -1,76 +1,41 @@
 {
-  "extends": "@nrwl/workspace/presets/npm.json",
   "npmScope": "keiko-serverless",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "package",
-          "test",
-          "test-all",
-          "test-type",
-          "test-linter",
-          "test-stylelint",
-          "test-unit"
-        ],
-        "cacheDirectory": "nx-cache",
-        "useDaemonProcess": false
-      }
+  "extends": "nx/presets/npm.json",
+  "useDaemonProcess": false,
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "deploy": {
+      "dependsOn": ["package", "build", "deploy"]
+    },
+    "package": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test-linter": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test-type": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test-unit": {
+      "dependsOn": ["package"],
+      "cache": true
+    },
+    "test-all": {
+      "cache": true
+    },
+    "test-stylelint": {
+      "cache": true
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "deploy": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      },
-      {
-        "target": "build",
-        "projects": "dependencies"
-      },
-      {
-        "target": "deploy",
-        "projects": "dependencies"
-      }
-    ],
-    "package": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-linter": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-type": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
-    "test-unit": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ]
   },
   "affected": {
     "defaultBase": "main"
