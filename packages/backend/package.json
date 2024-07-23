@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.370.0",
-    "@aws-sdk/util-dynamodb": "3.370.0"
+    "@aws-sdk/lib-dynamodb": "^3.616.0",
+    "@aws-sdk/util-dynamodb": "3.370.0",
+    "dynamodb-toolbox": "^0.9.5"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.30.1",
