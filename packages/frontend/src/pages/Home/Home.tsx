@@ -57,7 +57,7 @@ const Home = (): JSX.Element => {
   });
 
   const buyApeNFT = async () => {
-    const { data } = await client.post<ApeNFTData>(`/nfts`);
+    const { data } = await client.get<ApeNFTData>(`/nfts`);
 
     setApeNFTs(prevApeNFTs =>
       prevApeNFTs.concat({ ...data, src: ApeNFTImgs[data.imageIndex] }),
