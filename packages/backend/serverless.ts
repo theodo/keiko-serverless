@@ -16,10 +16,10 @@ const serverlessConfiguration: AWS = {
   ],
   provider: {
     name: 'aws',
-    runtime: 'nodejs14.x',
+    runtime: 'nodejs18.x',
     architecture: 'arm64',
     region: 'eu-west-1',
-    profile: '${env:AWS_PROFILE}', // Used to point to the right AWS account
+    profile: 'keiko-serverless', // Used to point to the right AWS account
     stage: "${opt:stage, 'dev'}", // Doc: https://www.serverless.com/framework/docs/providers/aws/guide/credentials/
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
