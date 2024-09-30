@@ -55,6 +55,5 @@
     "syncpack": "^10.6.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
-  },
-  "packageManager": "pnpm@8.6.6"
+  }
 }
