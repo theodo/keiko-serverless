@@ -26,6 +26,9 @@
     "test-unit": "nx run-many --target=test-unit --all --parallel=4",
     "watch": "nx run-many --target=watch --all  --parallel=4"
   },
+  "dependencies": {
+    "constructs": "^10.3.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
